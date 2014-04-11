@@ -28,8 +28,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(products_params)
-    redirect_to(root_path)
+    @product = Product.new(products_params)
+    @invalid_array
+    if @product.save
+      flash[:notice] = "Animal Added"
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

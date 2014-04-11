@@ -6,7 +6,8 @@ class ProductUploadsController < ApplicationController
 
   def create
     ProductUpload.new(params[:product_upload][:csv]).parse!
-    redirect_to root_path
+
+    redirect_to new_product_path
   end
 
 end

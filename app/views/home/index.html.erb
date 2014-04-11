@@ -4,7 +4,6 @@
 
 <h1>Exotic Animals</h1>
 
-
 <% @products.each do |product| %>
   <%= image_tag(product.picture.url(:small)) %>
   <%= link_to "#{product.name}", product_path(product), class: "below" %>

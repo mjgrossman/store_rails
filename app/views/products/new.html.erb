@@ -6,11 +6,17 @@
 <%= render('layouts/errors', object: @product) %>
   <%= render('form') %>
 
+<% if @invalid_array != nil %>
+  <% @invalid_array.each do |invalid| %>
+  <h1><%= invalid.name %></h1>
+  <% end %>
+<% end %>
+
 <h2>Upload CSV</h2>
  <div class='form-group'>
-  <%= form_for @product_upload do |f|%>
+  <%= form_for @product_upload, url: product_uploads_path, html: { :multipart => true } do |f|%>
     <%= f.label "CSV File" %>
     <%= f.file_field :csv %>
   </div>
-    <%= f.submit(:class => "btn btn-primary") %>
+    <%= f.submit(:class => "btn btn-success") %>
   <% end %>

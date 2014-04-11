@@ -1,8 +1,4 @@
-
-
 class ProductUpload
-
-
   include ActiveModel::Model
 
   def initialize(file)
@@ -10,9 +6,13 @@ class ProductUpload
   end
 
   def parse!
+    @invalid_array = []
     products_attributes = SmarterCSV.process(@file.tempfile)
     products_attributes.each do |product_attributes|
-      Product.create(product_attributes)
+      @product = Product.new(product_attributes)
+      if !@product.save
+        @invalid_array << @product
+      end
     end
   end
 end
