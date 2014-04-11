@@ -1,0 +1,12 @@
+<% content_for(:title, "All Users | Jungle") %>
+
+<h1>Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to "#{user.name}", user_path(user) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New user", new_user_path, :class=> "btn btn-success" %>

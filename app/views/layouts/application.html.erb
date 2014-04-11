@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>StoreV2</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,22 +9,24 @@
 <body>
 
   <div class="container">
-  <%= flash[:notice] %>
     <div class="navbar navbar-default navbar-fixed-top">
     <%= link_to "Home", root_url, class: "navbar-text pull-left" %>
-    <%# if current_user %>
-      <%#= link_to "Log Out", session_path("current"), method: "delete", class: "navbar-text pull-right" %>
+    <% if current_user %>
+      <%= link_to "Log Out", session_path("current"), method: "delete", class: "navbar-text pull-right" %>
+      <%= link_to "Users", users_path("current"), method: "get", class: "navbar-text pull-right" %>
       <div class="navbar-text pull-right">
-       Logged in as &nbsp; <%#= link_to current_user.name, user_path(current_user), id: "white" %>
+       Logged in as &nbsp; <%= link_to current_user.name, user_path(current_user), id: "white" %>
       </div>
-    <%# else %>
-      <%#= link_to "Sign Up", new_user_path, class: "navbar-text pull-right" %>
-      <%#= link_to "Log In", sessions_path, class: "navbar-text pull-right" %>
-    <%# end %>
+    <% else %>
+      <%= link_to "Log In", sessions_path, class: "navbar-text pull-right" %>
+    <% end %>
   </div>
   <div id="main">
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
 <%= yield %>
   </div>
 </div>
+
 </body>
 </html>

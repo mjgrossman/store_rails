@@ -1,0 +1,11 @@
+<% content_for(:title, "#{@user.name} | Jungle") %>
+
+<h1> <%= @user.name %> </h1>
+
+<%= link_to "User Menu", users_path, :class=> "btn btn-primary" %>
+<%= link_to "Edit User", edit_user_path, :class=> "btn btn-warning" %>
+<%= link_to "Delete", user_path(@user),
+                      :confirm => "You sure?",
+                      :method => "delete",
+                      :class => "btn btn-danger" %>
+

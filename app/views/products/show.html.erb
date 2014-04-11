@@ -7,9 +7,11 @@
     <li><%= @product.description%></li>
   </ul>
 <%= link_to "Product Menu", products_path, :class=> "btn btn-primary" %>
-<%= link_to "Edit Product", edit_product_path, :class=> "btn btn-warning" %>
-<%= link_to "Delete", product_path(@product),
+<% if current_user %>
+  <%= link_to "Edit Product", edit_product_path, :class=> "btn btn-warning" %>
+  <%= link_to "Delete", product_path(@product),
                       :confirm => "You sure?",
                       :method => "delete",
                       :class => "btn btn-danger" %>
+<% end %>
 

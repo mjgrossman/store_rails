@@ -1,3 +1,15 @@
+<% content_for(:title, "Home | Jungle") %>
+
 <h1>Welcome to the Jungle</h1>
+
+<h1>Exotic Animals</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to "#{product.name}", product_path(product) %>
+    </li>
+  <% end %>
+</ul>
+
 
 <%= link_to "Add New Product", new_product_path, :class=> "btn btn-success" %>
