@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: store_v2_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: store_v2_test
