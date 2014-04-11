@@ -4,3 +4,19 @@
 
 <%= render('layouts/errors', object: @product) %>
   <%= render('form') %>
+
+<% if @product.picture.instance.picture_file_name.nil? %>
+  <h3>Add a Photo for this animal</h3>
+  <%= form_for @product do |f| %>
+    <% f.label :picture %>
+    <%= f.file_field :picture %>
+    <%= f.submit "Submit", class: "btn btn-success margin-high" %>
+  <% end %>
+<% else %>
+  <h3>Update Photo</h3>
+  <%= form_for @product, url: product_path do |f| %>
+  <% f.label :picture %>
+  <%= f.file_field :picture %>
+  <%= f.submit "Update", class: "btn btn-warning margin-high" %>
+  <% end %>
+<% end %>

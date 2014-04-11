@@ -4,12 +4,9 @@
 
 <h1>Exotic Animals</h1>
 
-<ul>
-  <% @products.each do |product| %>
-    <li><%= link_to "#{product.name}", product_path(product) %>
-    </li>
-  <% end %>
-</ul>
 
+<% @products.each do |product| %>
+  <%= image_tag(product.picture.url(:small)) %>
+  <%= link_to "#{product.name}", product_path(product), class: "below" %>
+<% end %>
 
-<%= link_to "Add New Product", new_product_path, :class=> "btn btn-success" %>

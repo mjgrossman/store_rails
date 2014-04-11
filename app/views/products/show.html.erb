@@ -1,7 +1,7 @@
 <% content_for(:title, "#{@product.name} | Jungle") %>
 
 <h1> <%= @product.name %> </h1>
-  <h3><%= @product.name %></h3>
+  <%= image_tag(@product.picture.url(:medium)) %>
   <ul>
     <li><%= @product.price %></li>
     <li><%= @product.description%></li>
