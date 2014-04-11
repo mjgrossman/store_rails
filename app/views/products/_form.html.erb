@@ -1,0 +1,12 @@
+<%= form_for @product, :html => { :multipart => true } do |form| %>
+  <div class='form-group'>
+    <%= form.label "Product Name" %>
+    <%= form.text_field :name %>
+    <%= form.label "Price" %>
+    <%= form.text_field :price %>
+    <%= form.label "Description" %>
+    <%= form.text_field :description %>
+</div>
+    <%= form.submit(:class => "btn btn-primary") %>
+
+<% end %>

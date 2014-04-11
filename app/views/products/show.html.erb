@@ -1,0 +1,15 @@
+<% content_for(:title, "#{@product.name} | Jungle") %>
+
+<h1> <%= @product.name %> </h1>
+  <h3><%= @product.name %></h3>
+  <ul>
+    <li><%= @product.price %></li>
+    <li><%= @product.description%></li>
+  </ul>
+<%= link_to "Product Menu", products_path, :class=> "btn btn-primary" %>
+<%= link_to "Edit Product", edit_product_path, :class=> "btn btn-warning" %>
+<%= link_to "Delete", product_path(@product),
+                      :confirm => "You sure?",
+                      :method => "delete",
+                      :class => "btn btn-danger" %>
+

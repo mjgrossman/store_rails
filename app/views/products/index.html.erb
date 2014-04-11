@@ -1,0 +1,12 @@
+<% content_for(:title, "All Products | Jungle") %>
+
+<h1>Products</h1>
+
+<ul>
+  <% @products.each do |product| %>
+    <li><%= link_to "#{product.name}", product_path(product) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New product", new_product_path, :class=> "btn btn-success" %>
