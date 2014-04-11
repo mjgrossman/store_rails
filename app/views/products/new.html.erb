@@ -6,4 +6,11 @@
 <%= render('layouts/errors', object: @product) %>
   <%= render('form') %>
 
-
+<h2>Upload CSV</h2>
+ <div class='form-group'>
+  <%= form_for @product_upload do |f|%>
+    <%= f.label "CSV File" %>
+    <%= f.file_field :csv %>
+  </div>
+    <%= f.submit(:class => "btn btn-primary") %>
+  <% end %>

@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'capybara'
 gem 'bcrypt'
 gem 'paperclip'
+gem 'smarter_csv'
 
 group :development do
   gem 'better_errors'

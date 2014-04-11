@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product_upload = ProductUpload.new(:csv)
   end
 
   def edit
