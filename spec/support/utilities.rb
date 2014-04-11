@@ -13,3 +13,14 @@ def add_photo
   attach_file("Add photo", File.expand_path("./app/assets/images/tiger.jpeg"))
   click_button "Submit"
 end
+
+def add_product
+  @product = FactoryGirl.create :product
+  click_link "New Product"
+  fill_in "product_name", with: @product.name
+  fill_in "product_price", with: @product.price
+  fill_in "product_description", with: @product.description
+  click_button "Create Product"
+    DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean
+end

@@ -29,4 +29,5 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
