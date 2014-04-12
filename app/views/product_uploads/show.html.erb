@@ -1,0 +1,10 @@
+<h3>Valid Items Added to Database!</h3>
+
+<% @invalid_array.each do |invalid| %>
+  <p>This item was invalid<p>
+  Name: <%= invalid.name %><br>
+  Price: <%= invalid.price %><br>
+  Description: <%= invalid.description %><br>
+<% end %>
+
+

@@ -4,8 +4,14 @@ class ProductUploadsController < ApplicationController
   end
 
   def create
-    ProductUpload.new(params[:product_upload][:csv]).parse!
-    redirect_to new_product_path
+    @invalid_array = ProductUpload.new(params[:product_upload][:csv]).parse!
+    render 'show'
   end
 
+
+private
+
+  def products_uploads_params
+    params.require(:product_upload).permit(:csv, :invalid_array)
+  end
 end
